@@ -49,3 +49,12 @@ if (startBtn) {
         setTimeout(() => { overlay.style.display = 'none'; }, 500);
     });
 }
+
+const giftBtn = document.querySelector("#giftBtn");
+const povCont = document.querySelector("#povCont");
+
+if(giftBtn) {
+    giftBtn.addEventListener("click", () => {
+        povCont.classList.add("active");
+    })
+}

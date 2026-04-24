@@ -116,3 +116,43 @@ button:hover {
 .text-glass .active {
     display: block;
 }
+
+.pov-cont {
+    display: none; /* Ховаємо до натискання */
+    position: fixed; /* Вириваємо з потоку сторінки */
+    /* Початково, щоб покрити екран, коли блок повернуто на 90deg, 
+       ширина має бути висотою екрана, а висота - шириною */
+    width: 100vh; 
+    height: 100vw;
+    background-color: white; /* Або rgba(0,0,0,0.8) для ефекту затемнення */
+    z-index: 10000; /* Максимальний пріоритет (поверх всього) */
+    
+    /* Центруємо картинку всередині */
+    display: none; /* Буде змінено на flex через JS клас active */
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%) rotate(90deg);
+    top: 50%;
+    left: 50%;
+}
+
+/* Коли додаємо клас active через JS */
+.pov-cont.active {
+    display: flex; 
+    background-image: url('povistka.png'); 
+    
+    /* Картинка не має повторюватися */
+    background-repeat: no-repeat;
+    
+    /* Центруємо картинку в блоці */
+    background-position: center;
+    
+    /* Робимо так, щоб картинка вписувалася в екран (contain) */
+    /* Або cover, якщо хочеш, щоб вона заповнила все, але частина може обрізатися */
+    background-size: contain; 
+
+    /* Повертаємо сам фон всередині блоку на 90 градусів */
+    /* (Доступно в сучасних браузерах) */
+    background-image-transform: rotate(90deg);
+}
+
